@@ -20,16 +20,7 @@ exports.displayUsers = async(req, res)=>{
   })
 }
 
-//GET ALL USERS TO TEST ISLOGGEDIN INTEGRITY
-exports.homestart = (req, res)=>{
-//   if(req.admin){
-//  //  console.log(req.user)
-//     res.json({status: "success",  role:req.admin})
-//   }else{
-//     return res.json({status : "Error", "Error" : ' login please'})
-//   }
- res.send({status: "success, you are admin"})
-}
+
 
 //GET USER ACCOUNT
 exports.displayUserProfile = async(req, res)=>{
@@ -86,43 +77,6 @@ exports.deleteUser = (req, res)=>{
   })
 }
 
-//BLOCK A USER
-exports.blockandunblock = async(req, res) =>{
-  if( req.admin){
-    const {role} = req.admin
-    if( role !== 'admin'){
-      return res.json({status : "Error", " Error": " you are not allowed to run such operation"})
-    }
-    try{ 
-      const id  = req.body.id;
-      const block = req.body.block;
-     db.query('UPDATE users SET isBlocked = ? WHERE id = ?', [block, id], async(error, data) =>{
-      if(error){
-          return res.json({status : "Error", " Error": 'Error while blocking'})
-      }
-       db.query('SELECT * FROM users WHERE id = ?', [id], (err, bData) =>{
-        if(err) throw err;
-
-        if(!bData.length){
-          return res.json({status : "Error", " Error": 'ID Not registered, User does not exit'})
-        }
-       // bData = bData.[0].isBlocked
-        if(bData[0].isBlocked === 0){
-          res.json({status : "success", " sucess": 'User unblocked ' + " send user to home frontend "})
-        }else{
-          res.json({status : "423", " sucess": 'User blocked ' + " send user our blocked page frontend "})
-        }
-       })
-      
-     })
-  }catch(error){
-      return res.json({status : "Error", " Error": 'Error while executing query'})
-  }
-  }else{
-    return res.json({status : "Error", " Error": 'return back to home'})
-  }
-
-}
 
 
 //REGISTER A USER

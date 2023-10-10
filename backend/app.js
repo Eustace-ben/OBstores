@@ -9,7 +9,6 @@ const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 4000;
 
 
-
 //CONFIGURE CORS 
 const corsOptions = {
     origin: 'http://localhost:3000',
@@ -29,7 +28,7 @@ app.use(cookieParser())
 
 
 //configuring routes
-app.use('/', require('./routes/route'))
+// app.use('/', require('./routes/route'))
 app.use('/user', require('./routes/auth'));
 
 

@@ -39,7 +39,7 @@ const handlesubmit = (e) =>{
     .then(res=> {
       //console.log(res)
        if(res.data.status === "success"){
-        navigate('/dashboard')
+        navigate('/admin/dashboard')
        }else{
         setError(res.data.Error)
        }

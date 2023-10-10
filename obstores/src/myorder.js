@@ -2,9 +2,9 @@ import Nav from './nav';
 import Footer from './footer';
 import { Link } from 'react-router-dom';
 
-const Order = () => {
+const Myorder = () => {
     return ( 
-        <div className="orderComponent">
+        <div className="MyorderComponent">
 {/* START NAV  */}
 <Nav></Nav>
 {/* END NAV */}
@@ -85,4 +85,4 @@ const Order = () => {
      );
 }
  
-export default Order;
+export default Myorder;

@@ -40,7 +40,7 @@ useEffect(()=>{
 
       <div class="row flex-nowrap wall">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark" style={{maxHeight: "30rem"}} >
-          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2  min-vh-100">
+          <div class="d-flex flex-column align-items-center align-items-sm-start  pt-2  min-vh-100">
  
           
             <Link to="/myaccount"  class="d-flex  pb-3 mb-md-0 me-md-auto  text-decoration-none text-decoration-none">
@@ -51,7 +51,7 @@ useEffect(()=>{
          
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center  align-items-sm-start" id="menu" >
               <li >
-                <Link to='/order' class="nav-link align-middle px-0" style={{color:"white"}}>
+                <Link to='/myorder' class="nav-link align-middle px-0" style={{color:"white"}}>
                   <i class="fs-4 bi bi-basket-fill "   ></i> <span class="ms-1 d-none d-sm-inline"> Orders</span>
               
                 </Link>

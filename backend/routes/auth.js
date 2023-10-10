@@ -17,26 +17,27 @@ router.get('/fetchUsers', userController.displayUsers)
 router.get('/myaccount', isLoggedIn, userController.displayUserProfile)
 router.delete('/delete/:id', userController.deleteUser)
 router.put('/update/:id', userController.updateUser)
-router.get('/show', isLoggedIn,isAdmin, userController.homestart);
-router.put('/block',isLoggedIn,isAdmin, userController.blockandunblock);
-router.get('/logout',isLoggedIn, userController.logout);
+router.post('/logout',isLoggedIn, userController.logout);
 
 
 
-//ADMIN ROUTER
+//ADMIN ROUTES FOR USERS
 router.post('/admin/access', isLoggedIn, isAdmin, adminController.login);
-router.get('/admin/adminprofile', isLoggedIn, isAdmin, adminController.displayadminprofile)
-router.get('/admin/proute', isLoggedIn, isAdmin, adminController.proute)
+router.get('/admin/adminprofile', isLoggedIn, isAdmin, adminController.displayadminprofile);
+router.get('/admin/proute', isLoggedIn, isAdmin, adminController.proute);
+router.get('/admin/allusers', isLoggedIn, isAdmin, adminController.allusers);
+router.get('/admin/recentusers', isLoggedIn, isAdmin, adminController.recentusers);
+router.put('/admin/editusers/:id', isLoggedIn, isAdmin, adminController.editusers);
+router.delete('/admin/deleteuser/:id', isLoggedIn, isAdmin, adminController.deleteuser);
+router.put('/admin/changerole/:id', isLoggedIn, isAdmin, adminController.changerole);
+router.put('/admin/block/:id',isLoggedIn, isAdmin, adminController.blockandunblock);
 
-
-
-
-//AUTH ROUTES PRODUCT
+//  ROUTES FOR PRODUCT
 router.get('/displayproduct/:id', productController.displayproduct);
-router.get('/displayAllproduct', productController.displayAllproduct);
-router.post('/createproduct/:id', isLoggedIn, productController.createproduct);
+router.get('/admin/displayAllproduct', isLoggedIn, isAdmin,  productController.displayAllproduct);
+router.post('/admin/createproduct', isLoggedIn, isAdmin, productController.createproduct);
 router.put('/updateproduct/:id', isLoggedIn, productController.updateproduct);
-router.delete('/deleteproduct/:id', isLoggedIn, productController.deleteproduct);
+router.delete('/admin/deleteproduct/:id', isLoggedIn,isAdmin,  productController.deleteproduct);
 
 
 
